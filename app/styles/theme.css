@@ -1,0 +1,17 @@
+@theme {
+  --color-text-primary: #000;
+  --color-bg-primary: #6200EE;
+  --color-text-primary-100: #EBEDF0;
+  --color-btn-primary-200: #290064;
+  --color-border-primary-300: #4600A9;
+  --color-bg-primary-400: #320078;
+  --color-primary-50: #EFE6FD;
+  --color-grey-100: #111822;
+  --color-grey-900: #283857;
+  --color-card-bg: #1e2332;
+  --color-card-bg2: #2a2d42;
+  --color-outline: #5900D9;
+  --color-text-primary-200: #CEB0FA;
+  --color-text-primary-300: #EFE6FD;
+ 
+}
