@@ -1,7 +1,7 @@
 "use client";
 
 
-import { X } from "lucide-react";
+// import { X } from "lucide-react";
 import { ReactNode, useCallback } from "react";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -89,12 +89,12 @@ const Modal = ({
             </div>
           )}
           {/* Close button - always closeable */}
-          <button
+          {/* <button
             onClick={handleCloseButton}
             className="flex-shrink-0 text-gray-400 transition hover:text-gray-200 focus:outline-0"
           >
             <X size={20} className="text-gray-200" />
-          </button>
+          </button> */}
         </div>
         <div className="pt-6">{content}</div>
       </DialogContent>

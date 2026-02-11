@@ -148,7 +148,7 @@ export default function Header() {
             setOpen={() => {
                setIsOpen(false);
             }}
-            title={'Login before getting started '}
+            // title={'Login before getting started '}
             content={ 
               <ModelContents/>
             }
