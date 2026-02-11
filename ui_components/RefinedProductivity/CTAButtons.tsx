@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CTAButtons() {
   return (
-    <div className="flex gap-4 w-[358px] h-[48px]">
+    <div className="flex gap-4 w-89.5 h-12">
       {/* Primary Button */}
       <button
         className="

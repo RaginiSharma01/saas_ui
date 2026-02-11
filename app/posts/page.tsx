@@ -13,8 +13,15 @@ import {
 } from "@/components/ui/card";
 import { useRouter } from 'next/navigation';
 
+interface IPost{
+  id:number,
+  title:string,
+  userId:number
+  body:string
+}
+
 export default function ClientPosts() {
-  const [posts, setPosts] = useState<any>([]);
+  const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -32,7 +39,7 @@ export default function ClientPosts() {
     fetchData();
   }, []);
 
-   function handleClick(id){
+   function handleClick(id:number){
     router.push(`/posts/${id}`);
     
    }
@@ -41,7 +48,7 @@ export default function ClientPosts() {
 
  return (
   <div className="bg-card-bg grid gap-4 p-6 sm:grid-cols-2 lg:grid-cols-3">
-    {posts.map((post: any) => (
+    {posts.map((post:IPost) => (
       <Card key={post.id} className="w-full">
         <CardHeader>
           <CardTitle className="text-lg">{post.title}</CardTitle>

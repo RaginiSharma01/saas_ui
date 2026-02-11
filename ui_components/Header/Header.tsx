@@ -3,10 +3,12 @@ import Image from "next/image";
 import { images } from "@/utils/images";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import Modal from "@/shared/Modal";
+import ModelContents from "@/shared/ModelContents";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);   
-
+  const[isOpen , setIsOpen] = useState(false);
 
   
   return (
@@ -134,12 +136,25 @@ export default function Header() {
                 hover:opacity-90
                 transition
               "
+              onClick={()=>setIsOpen(true)}
             >
               GET STARTED
             </button>
           </div>
         </div>
       </div>
+      <Modal
+            open={isOpen}
+            setOpen={() => {
+               setIsOpen(false);
+            }}
+            title={'Login before getting started '}
+            content={ 
+              <ModelContents/>
+            }
+            classNameForTitle={"-mt-4 text-[20px]"}
+            className="text-text-primary-200 bg-card-bg w-full max-w-full sm:max-w-[70%] lg:max-w-[35%] mx-auto"
+        />
     </header>
   );
 }
