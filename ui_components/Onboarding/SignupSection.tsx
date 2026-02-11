@@ -5,7 +5,7 @@ interface ISignupSection{
 
 }
 
-    const SignupSection=({setOnboardingView}:ISignupSection)=>{
+const SignupSection=({setOnboardingView}:ISignupSection)=>{
   return(
     <div className="w-full flex flex-col gap-6">
       {/* Heading */}
@@ -14,12 +14,23 @@ interface ISignupSection{
           SignUp to your account
         </h2>
         <p className="text-sm text-gray-400 mt-1">
-          Enter your email below to login to your account
+          Register your account
         </p>
       </div>
 
-      {/* Form */}
       <form className="flex flex-col gap-4">
+        {/* Name */}
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-gray-400">Name</label>
+          <input
+            type="name"
+            placeholder="IronMan"
+            className="px-3 py-2 rounded-lg bg-card-bg2 border border-gray-700 text-white focus:outline-none focus:border-gray-500"
+          />
+        </div>
+
+      {/* Form */}
+      
         {/* Email */}
         <div className="flex flex-col gap-1">
           <label className="text-sm text-gray-400">Email</label>
@@ -59,27 +70,27 @@ interface ISignupSection{
         </button>
       </form>
 
-      {/* Divider */}
+      {/* Divider
       <div className="flex items-center gap-2">
         <div className="h-px bg-gray-800 flex-1" />
         <span className="text-gray-500 text-sm">Or continue with</span>
         <div className="h-px bg-gray-800 flex-1" />
-      </div>
+      </div> */}
 
-      {/* GitHub Login */}
+      {/* GitHub Login
       <button
         
         className="flex items-center justify-center gap-2 border border-gray-700 py-2 rounded-lg hover:bg-gray-900 transition text-white"
       >
       
         Login with Google
-      </button>
+      </button> */}
 
       {/* Signup link */}
       <p className="text-center text-sm text-gray-400">
-        Don’t have an account?{" "}
+        Go to login page{" "}
         <button className="text-white underline"onClick={() => setOnboardingView('login')}>
-          Sign up
+          LogIn
         </button>
       </p>
     </div>
