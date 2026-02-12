@@ -33,7 +33,7 @@ export default function PostPage() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `https://jsonplaceholder.typicode.com/posts/${id}`
+          `https://dummyjson.com/posts/${id}`
         );
         setPost(res.data);
       } catch (error) {
@@ -63,7 +63,7 @@ export default function PostPage() {
         </CardHeader>
 
         <CardContent>
-          <p className="text-text-primary-100">
+          <p className="text-card-bg">
             {post.body}
           </p>
         </CardContent>

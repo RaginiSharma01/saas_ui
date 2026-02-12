@@ -13,23 +13,23 @@ import {
 } from "@/components/ui/card";
 import { useRouter } from 'next/navigation';
 
-interface IPost{
-  id:number,
-  title:string,
-  userId:number
-  body:string
+interface IPost {
+  id: number;
+  title: string;
+  userId: number;
+  body: string;
 }
 
 export default function ClientPosts() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<IPost[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
-        setPosts(res.data);
+        const res = await axios.get('https://dummyjson.com/posts');
+        setPosts(res.data.posts); // FIXED
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -39,36 +39,60 @@ export default function ClientPosts() {
     fetchData();
   }, []);
 
-   function handleClick(id:number){
+  function handleClick(id: number) {
     router.push(`/posts/${id}`);
-    
-   }
+  }
 
   if (loading) return <p>Loading...</p>;
+//delete post 
+async function handleDelete(id:number) {
+  try{
+    await axios.delete(`https://dummyjson.com/posts/${id}`);
 
- return (
-  <div className="bg-card-bg grid gap-4 p-6 sm:grid-cols-2 lg:grid-cols-3">
-    {posts.map((post:IPost) => (
-      <Card key={post.id} className="w-full">
-        <CardHeader>
-          <CardTitle className="text-lg">{post.title}</CardTitle>
-          <CardDescription>User ID: {post.userId}</CardDescription>
-        </CardHeader>
+    setPosts((prev)=> prev.filter((post)=>post.id!==id));
+  }catch(error){
+    console.error(error);
+  }
+  
+}
+  return (
+    <div className="bg-card-bg grid gap-4 p-6 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => (
+        <Card key={post.id} className="w-full">
+          <CardHeader>
+            <CardTitle className="text-lg">{post.title}</CardTitle>
+            <CardDescription>User ID: {post.userId}</CardDescription>
+          </CardHeader>
 
-        <CardContent>
-          <p className="text-sm text-gray-600">{post.body}</p>
-        </CardContent>
+          <CardContent>
+            <p className="text-sm text-gray-600">{post.body}</p>
+          </CardContent>
 
-        <CardFooter>
-            
-                <Button onClick={()=>handleClick(post.id)} variant="outline" size="sm" className="w-full bg-bg-primary">
-                    Read More
-                </Button>
-            
-          
-        </CardFooter>
-      </Card>
-    ))}
-  </div>
-);
+          <CardFooter>
+            <CardFooter className="flex gap-2">
+  <Button
+    onClick={() => handleClick(post.id)}
+    variant="outline"
+    size="sm"
+    className="flex-1 bg-bg-primary"
+  >
+    Read More
+  </Button>
+
+  
+  <Button
+    onClick={() => handleDelete(post.id)}
+    variant="outline"
+    size="sm"
+    className="flex-1 bg-bg-primary"
+  >
+    Delete
+  </Button>
+</CardFooter>
+
+          </CardFooter>
+        </Card>
+      ))}
+    </div>
+  );
 }

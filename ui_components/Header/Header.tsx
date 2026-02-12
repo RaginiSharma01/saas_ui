@@ -69,6 +69,7 @@ export default function Header() {
             </button>
                 </div>
         </div>
+        
       ) }
 
       <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-6 lg:px-12">

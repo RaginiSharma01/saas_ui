@@ -25,7 +25,7 @@ const LoginSection = ({setOnboardingView}:ILoginSection) => {
           <label className="text-sm text-gray-400">Email</label>
           <input
             type="email"
-            placeholder="m@example.com"
+            placeholder="name@gmail.com"
             className="px-3 py-2 rounded-lg bg-card-bg2 border border-gray-700 text-white focus:outline-none focus:border-gray-500"
           />
         </div>
@@ -66,7 +66,7 @@ const LoginSection = ({setOnboardingView}:ILoginSection) => {
         <div className="h-px bg-gray-800 flex-1" />
       </div>
 
-      {/* GitHub Login */}
+     
       <button
         
         className="flex items-center justify-center gap-2 border border-gray-700 py-2 rounded-lg hover:bg-gray-900 transition text-white"
